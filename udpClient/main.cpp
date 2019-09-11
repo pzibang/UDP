@@ -18,11 +18,11 @@ int main()
 		return -1;
 	}
 
-	SOCKET servSock = socket(AF_INET, SOCK_DGRAM, IPPROTO_IP);	//´´½¨Ì×½Ó×Ö
-	sockaddr_in servAddr;	//ÉùÃ÷·şÎñÆ÷µØÖ·ĞÅÏ¢½á¹¹Ìå
+	SOCKET servSock = socket(AF_INET, SOCK_DGRAM, IPPROTO_IP);	//åˆ›å»ºå¥—æ¥å­—
+	sockaddr_in servAddr;	//å£°æ˜æœåŠ¡å™¨åœ°å€ä¿¡æ¯ç»“æ„ä½“
 	memset(&servAddr, 0, sizeof(servAddr));
 
-	//ÌîĞ´·şÎñÆ÷µØÖ·
+	//å¡«å†™æœåŠ¡å™¨åœ°å€
 	servAddr.sin_family = AF_INET;
 	servAddr.sin_port = htons(69);
 	servAddr.sin_addr.S_un.S_addr = inet_addr("127.0.0.1");
@@ -39,7 +39,7 @@ int main()
 		strLen = recvfrom(servSock, revBuffer,  BUF_SIZE, 0, &fromAddr, &addrLen);
 		revBuffer[strLen] = '\0';
 		puts(revBuffer);
-		shutdown(servSock, SD_BOTH);
+		
 	}
 
 	closesocket(servSock);
